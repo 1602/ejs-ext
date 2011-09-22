@@ -36,9 +36,9 @@ exports.templateText = function (name, data) {
                 case 'Boolean':
                 form += [
                     '<div class="clearfix">',
-                    '  <%- form.checkbox("' + property.name + '") %>',
+                    '  <%- form.label("' + property.name + '") %>',
                     '  <div class="input">',
-                    '    <%- form.label("' + property.name + '") %>',
+                    '    <%- form.checkbox("' + property.name + '") %>',
                     '  </div>',
                     '</div>'
                 ].join('\n') + '\n';
@@ -46,7 +46,7 @@ exports.templateText = function (name, data) {
                 default:
                 form += [
                     '<div class="clearfix">',
-                    '  <%- form.label("' + property.name + '") %><br />',
+                    '  <%- form.label("' + property.name + '") %>',
                     '  <div class="input">',
                     '    <%- form.input("' + property.name + '") %>',
                     '  </div>',
