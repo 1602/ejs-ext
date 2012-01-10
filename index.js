@@ -1,9 +1,15 @@
+var fs = require('fs');
+
 // monkey patch ejs
-var ejs = require('ejs'), old_parse = ejs.parse;
-ejs.parse = function () {
-    var str = old_parse.apply(this, Array.prototype.slice.call(arguments));
-    return str.replace('var buf = [];', 'var buf = []; arguments.callee.buf = buf;');
-};
+try {
+    var ejs = require('ejs'), old_parse = ejs.parse;
+    ejs.parse = function () {
+        var str = old_parse.apply(this, Array.prototype.slice.call(arguments));
+        return str.replace('var buf = [];', 'var buf = []; arguments.callee.buf = buf;');
+    };
+} catch (e) {
+    // disregard if ejs is not installed yet
+}
 
 /**
  * This extension will be used by default for all template files
@@ -27,6 +33,17 @@ exports.templateText = function (name, data) {
 
         case 'default_action_view':
         return '<div class="page-header"><h1>' + data.join('#') + '</h1></div>\n';
+
+        case 'scaffold_show':
+        var fields = [];
+        data.forEach(function (property) {
+            switch (property.type) {
+                default:
+                fields.push('<div property="' + property.name + '"><%= model.' + property.name + ' %></div>');
+                break;
+            }
+        });
+        return fs.readFileSync(exports.template('scaffold_show')).toString().replace('FIELDS', fields.join('\n  '));
 
         case 'scaffold_form':
         var form = '';

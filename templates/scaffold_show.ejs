@@ -2,6 +2,10 @@
   <h1>Details of model</h1>
 </div>
 
+<div about="<%= path_to.model(model) %>">
+  FIELDS
+</div>
+
 <div class="actions">
   <%- link_to('Edit', path_to.edit_model(model), {class: 'btn primary'}) %>
   <%- link_to('Delete', path_to.model(model), {class: 'btn danger', method: 'delete', remote: true, jsonp: '(function (u) { location.href = u; })'}) %>
