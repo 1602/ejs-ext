@@ -39,11 +39,11 @@ exports.templateText = function (name, data) {
         data.forEach(function (property) {
             switch (property.type) {
                 default:
-                fields.push('<div property="' + property.name + '"><%= model.' + property.name + ' %></div>');
+                fields.push('<tr><th>' + property.name + '</th><td><%= model.' + property.name + ' %></td></tr>');
                 break;
             }
         });
-        return fs.readFileSync(exports.template('scaffold_show')).toString().replace('FIELDS', fields.join('\n  '));
+        return fs.readFileSync(exports.template('scaffold_show')).toString().replace('FIELDS', fields.join('\n        '));
 
         case 'scaffold_form':
         var form = '';
@@ -51,21 +51,21 @@ exports.templateText = function (name, data) {
             switch (property.type) {
                 case 'Boolean':
                 form += [
-                    '<div class="clearfix">',
-                    '  <%- form.label("' + property.name + '") %>',
-                    '  <div class="input">',
-                    '    <%- form.checkbox("' + property.name + '") %>',
-                    '  </div>',
+                    '<div class="control-group">',
+                    '   <%- form.label("' + property.name + '", false, {class: "control-label"}) %>',
+                    '   <div class="controls">',
+                    '       <%- form.checkbox("' + property.name + '") %>',
+                    '   </div>',
                     '</div>'
                 ].join('\n') + '\n';
                 break;
                 default:
                 form += [
-                    '<div class="clearfix">',
-                    '  <%- form.label("' + property.name + '") %>',
-                    '  <div class="input">',
-                    '    <%- form.input("' + property.name + '") %>',
-                    '  </div>',
+                    '<div class="control-group">',
+                    '   <%- form.label("' + property.name + '", false, {class: "control-label"}) %>',
+                    '   <div class="controls">',
+                    '       <%- form.input("' + property.name + '") %>',
+                    '   </div>',
                     '</div>'
                 ].join('\n') + '\n';
             }
