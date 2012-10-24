@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="span12">
-        <p><%- link_to('<i class="icon-plus icon-white"></i> New model', path_to.new_model, {class: 'btn btn-primary'}) %></>
+        <p><%- link_to('<i class="icon-plus icon-white"></i> New model', pathTo.new_model, {class: 'btn btn-primary'}) %></>
     </div>
 </div>
 
@@ -21,10 +21,10 @@
                 <tbody>
                     <% models.forEach(function (model) { %>
                         <tr>
-                            <td><strong><%- link_to('model #' + model.id, path_to.model(model)) %></strong></td>
+                            <td><strong><%- link_to('model #' + model.id, pathTo.model(model)) %></strong></td>
                             <td>
-                                <%- link_to('<i class="icon-edit"></i> Edit', path_to.edit_model(model), {class: 'btn btn-mini'}) %>
-                                <%- link_to('<i class="icon-remove icon-white"></i> Delete', path_to.model(model), {class: 'btn btn-mini btn-danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'}) %>        
+                                <%- link_to('<i class="icon-edit"></i> Edit', pathTo.edit_model(model), {class: 'btn btn-mini'}) %>
+                                <%- link_to('<i class="icon-remove icon-white"></i> Delete', pathTo.model(model), {class: 'btn btn-mini btn-danger', method: 'delete', remote: true, jsonp: '(function (u) {location.href = u;})'}) %>        
                             </td>
                         </tr>
                     <% }); %>        

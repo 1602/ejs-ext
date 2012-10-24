@@ -43,7 +43,7 @@ exports.templateText = function (name, data) {
                 break;
             }
         });
-        return fs.readFileSync(exports.template('scaffold_show')).toString().replace('FIELDS', fields.join('\n        '));
+        return fs.readFileSync(exports.template('scaffold_show')).toString().replace('FIELDS', fields.join('\n\n        '));
 
         case 'scaffold_form':
         var form = '<%- errorMessagesFor(model) %>\n';
@@ -57,7 +57,7 @@ exports.templateText = function (name, data) {
                     '       <%- form.checkbox("' + property.name + '") %>',
                     '   </div>',
                     '</div>'
-                ].join('\n') + '\n';
+                ].join('\n\n') + '\n';
                 break;
                 default:
                 form += [
