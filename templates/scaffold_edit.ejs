@@ -9,7 +9,7 @@
 </div>
 
 <% formFor(model, {action: pathTo.model(model), method: 'PUT', id: "model-form", class: 'form-horizontal'}, function (form) { %>
-<%- partial('models/form.ejs', {locals: {form: form, model: model}}) %>
+<%- include _form %>
 <div class="form-actions">
     <%- form.submit('<i class="icon-ok icon-white"></i> Update model', {class: 'btn btn-primary'}) %> or
     <%- linkTo('Cancel', pathTo.model(model), {class: 'btn'}) %>
