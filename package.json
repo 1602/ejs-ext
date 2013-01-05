@@ -1,27 +1,30 @@
 {
   "name": "ejs-ext",
-  "version": "0.1.4",
+  "version": "0.1.4-1",
   "description": "CompoundJS adapter for ejs templating engine",
   "author": {
     "name": "Anatoliy C.",
     "email": "mail@anatoliy.in"
   },
-  "contributors": [ {
-    "name": "Anatoliy C.",
-    "email": "mail@anatoliy.in"
-  }, {
-    "name": "Garrett Johnson"
-  }, {
-    "name": "Alexey Gordeyev",
-    "email": "agbiggora@gmail.com",
-    "url": "https://github.com/biggora"
-  }],
+  "contributors": [
+    {
+      "name": "Anatoliy C.",
+      "email": "mail@anatoliy.in"
+    },
+    {
+      "name": "Garrett Johnson"
+    },
+    {
+      "name": "Alexey Gordeyev",
+      "email": "agbiggora@gmail.com",
+      "url": "https://github.com/biggora"
+    }
+  ],
   "main": "index.js",
   "engines": {
     "node": ">= 0.4.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {},
   "repository": {
     "url": "git@github.com:1602/ejs-ext.git"
