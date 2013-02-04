@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <title><%= title %></title>
+        <meta charset="utf8">
+        <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
         <%- stylesheet_link_tag('bootstrap', 'application', 'bootstrap-responsive') %>
         <%- javascript_include_tag('http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', 'bootstrap', 'rails', 'application') %>
         <%- csrf_meta_tag() %>
@@ -34,7 +36,7 @@
 
             <hr />
             <footer>
-                <p>&copy; Company 2012</p>
+                <p>&copy; Company <% var d=new Date();%><%= d.getFullYear() %></p>
             </footer>
         </div>
     </body>
