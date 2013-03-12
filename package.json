@@ -1,6 +1,6 @@
 {
   "name": "ejs-ext",
-  "version": "0.1.4-3",
+  "version": "0.1.4-4",
   "description": "CompoundJS adapter for ejs templating engine",
   "author": {
     "name": "Anatoliy C.",
